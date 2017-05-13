@@ -28,11 +28,9 @@ class CharactersController < ApplicationController
 
     respond_to do |format|
       if @character.save
-        format.html { redirect_to @character, notice: 'Character was successfully created.' }
-        format.json { render :show, status: :created, location: @character }
+        redirect_to characters_path
       else
-        format.html { render :new }
-        format.json { render json: @character.errors, status: :unprocessable_entity }
+        redirect_to characters_path
       end
     end
   end
@@ -42,10 +40,8 @@ class CharactersController < ApplicationController
   def update
     respond_to do |format|
       if @character.update(character_params)
-        format.html { render text: "hi" }
         format.json { render :show, status: :ok, location: @character }
       else
-        format.html { redirect_to characters_path }
         format.json { render json: @character.errors, status: :unprocessable_entity }
       end
     end
@@ -55,10 +51,8 @@ class CharactersController < ApplicationController
   # DELETE /characters/1.json
   def destroy
     @character.destroy
-    respond_to do |format|
-      format.html { redirect_to characters_url, notice: 'Character was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+
+    redirect_to characters_path
   end
 
   private

@@ -1,5 +1,13 @@
 <h1>Sovereigns Finest</h1>
 
 <table id="characters">
+  <thead>
+    <tr>
+      <td class="name">Name</td>
+      <td class="health">Health</td>
+      <td class="control"></td>
+    </tr>
+  </thead>
   <%= render @characters %>
+  <%= render partial: 'characters/form' %>
 </table>

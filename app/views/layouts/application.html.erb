@@ -10,7 +10,11 @@
 
   <body>
     <h1>Sovereign's Finest</h1>
-    <p>Connection: <span id="connection" class="off">Off</span></p>
+    <p>
+      <%= link_to "Encounters", encounters_path %>
+      |
+      Connection: <span id="connection" class="off">Off</span>
+    </p>
     <%= yield %>
 
     <div id="log">

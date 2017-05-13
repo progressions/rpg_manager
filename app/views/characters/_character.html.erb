@@ -1,6 +1,6 @@
-<tr>
-  <td>Name: <%= character.name %></td>
-  <td>
+<tr id="<%= dom_id(character) %>">
+  <td class="name">Name: <%= character.name %></td>
+  <td class="health">
     Health: <%= character.health %>
     <%= form_for character do |f| %>
       <%= f.hidden_field :health, value: character.health+1 %>

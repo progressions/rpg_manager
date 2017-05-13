@@ -1,24 +1,27 @@
-App.characters = App.cable.subscriptions.create "CharactersChannel",
-  connected: ->
-    $("#connection").html("On").removeClass("off").addClass("on")
+$ ->
+  encounter_id = $("#encounter_id").val()
 
-  disconnected: ->
-    $("#connection").html("Off").removeClass("on").addClass("off")
+  App.characters = App.cable.subscriptions.create { channel: "CharactersChannel", encounter_id: encounter_id },
+    connected: ->
+      $("#connection").html("On").removeClass("off").addClass("on")
 
-  received: (data) ->
-    $("#log").append("<p>Message: #{data['action']}</p>")
-    if data['action'] is 'change'
-      $("#character_#{data['id']}").replaceWith(data['data'])
-    else if data['action'] is 'create'
-      $("#list").append(data['data'])
-    else if data['action'] is 'destroy'
-      $("#character_#{data['id']}").remove()
+    disconnected: ->
+      $("#connection").html("Off").removeClass("on").addClass("off")
 
-  change: (data) ->
-    @perform 'change', data: data
+    received: (data) ->
+      $("#log").append("<p>Message: #{data['action']}</p>")
+      if data['action'] is 'change'
+        $("#character_#{data['id']}").replaceWith(data['data'])
+      else if data['action'] is 'create'
+        $("#list").append(data['data'])
+      else if data['action'] is 'destroy'
+        $("#character_#{data['id']}").remove()
 
-  create: (data) ->
-    @perform 'create', data: data
+    change: (data) ->
+      @perform 'change', data: data
 
-  destroy: (data) ->
-    @perform 'destroy', data: data
+    create: (data) ->
+      @perform 'create', data: data
+
+    destroy: (data) ->
+      @perform 'destroy', data: data

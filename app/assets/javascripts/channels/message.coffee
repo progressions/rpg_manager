@@ -1,18 +1,21 @@
-App.message = App.cable.subscriptions.create "MessageChannel",
-  connected: ->
-    $("#connection").html("On").removeClass("off").addClass("on")
+$ ->
+  encounter_id = $("#encounter_id").val()
 
-  disconnected: ->
-    $("#connection").html("Off").removeClass("on").addClass("off")
+  App.message = App.cable.subscriptions.create { channel: "MessageChannel", encounter_id: encounter_id },
+    connected: ->
+      $("#connection").html("On").removeClass("off").addClass("on")
 
-  received: (data) ->
-    $("#messages").prepend(data['data'])
+    disconnected: ->
+      $("#connection").html("Off").removeClass("on").addClass("off")
 
-  speak: (message) ->
-    @perform 'speak', data: message
+    received: (data) ->
+      $("#messages").prepend(data['data'])
 
-$(document).on "keypress", "[data-behavior~=message_speaker]", (event) ->
-  if event.keyCode is 13
-    App.message.speak event.target.value
-    event.target.value = ''
-    event.preventDefault()
+    speak: (data) ->
+      @perform 'speak', encounter_id: data['encounter_id'], body: data['body']
+
+  $(document).on "keypress", "[data-behavior~=message_speaker]", (event) ->
+    if event.keyCode is 13
+      App.message.speak { encounter_id: $("#encounter_id").val(), body: event.target.value }
+      event.target.value = ''
+      event.preventDefault()

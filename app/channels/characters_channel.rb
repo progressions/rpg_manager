@@ -1,6 +1,6 @@
 class CharactersChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "characters_channel"
+    stream_from "encounter_#{params[:encounter_id]}_characters"
   end
 
   def unsubscribed

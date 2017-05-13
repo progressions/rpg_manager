@@ -6,7 +6,13 @@ App.message = App.cable.subscriptions.create "MessageChannel",
     $("#connection").html("Off").removeClass("on").addClass("off")
 
   received: (data) ->
-    # Called when there's incoming data on the websocket for this channel
+    $("#messages").prepend(data['data'])
 
   speak: (message) ->
     @perform 'speak', data: message
+
+$(document).on "keypress", "[data-behavior~=message_speaker]", (event) ->
+  if event.keyCode is 13
+    App.message.speak event.target.value
+    event.target.value = ''
+    event.preventDefault()

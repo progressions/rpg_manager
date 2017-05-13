@@ -6,6 +6,7 @@ class CharactersController < ApplicationController
   def index
     @character = Character.new
     @characters = Character.all
+    @messages = Message.order("created_at DESC")
   end
 
   # GET /characters/1

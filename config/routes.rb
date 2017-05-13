@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :messages
   get 'characters/new'
 
   get 'characters/edit'

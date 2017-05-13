@@ -20,3 +20,6 @@
 #connection.on {
   color: green;
 }
+#log {
+  display: none;
+}

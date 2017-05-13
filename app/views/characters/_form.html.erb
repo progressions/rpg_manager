@@ -1,5 +1,5 @@
 <tr>
-  <%= form_with model: Character.new, local: true do |f| %>
+  <%= form_with model: @character do |f| %>
     <td class="name">
       <%= f.text_field :name, placeholder: "Name" %>
     </td>

@@ -4,6 +4,7 @@ class CharactersController < ApplicationController
   # GET /characters
   # GET /characters.json
   def index
+    @character = Character.new
     @characters = Character.all
   end
 
@@ -26,12 +27,10 @@ class CharactersController < ApplicationController
   def create
     @character = Character.new(character_params)
 
-    respond_to do |format|
-      if @character.save
-        redirect_to characters_path
-      else
-        redirect_to characters_path
-      end
+    if @character.save
+      redirect_to characters_path
+    else
+      redirect_to characters_path
     end
   end
 

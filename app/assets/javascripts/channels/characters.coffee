@@ -1,9 +1,10 @@
 App.characters = App.cable.subscriptions.create "CharactersChannel",
   connected: ->
-    # Called when the subscription is ready for use on the server
+    $("#connection").html("On").removeClass("off").addClass("on")
 
   disconnected: ->
-    # Called when the subscription has been terminated by the server
+    $("#connection").html("Off").removeClass("on").addClass("off")
+
 
   received: (data) ->
     $("#character_#{data['id']}").replaceWith(data['data'])

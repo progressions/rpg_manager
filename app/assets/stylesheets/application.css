@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+#connection.off {
+  color: red;
+}
+#connection.on {
+  color: green;
+}

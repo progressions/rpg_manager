@@ -3,7 +3,7 @@ class CharacterCreateBroadcastJob < ApplicationJob
 
   def perform(data)
     character = Character.find(data['id'])
-    ActionCable.server.broadcast "characters_channel", id: character.id, data: render_character(character)
+    ActionCable.server.broadcast "characters_channel", action: "create", id: character.id, data: render_character(character)
   end
 
   private

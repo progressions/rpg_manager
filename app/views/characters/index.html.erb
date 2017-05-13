@@ -8,6 +8,8 @@
       <td class="control"></td>
     </tr>
   </thead>
-  <%= render @characters %>
+  <tbody id="list">
+    <%= render @characters %>
+  </tbody>
   <%= render partial: 'characters/form' %>
 </table>

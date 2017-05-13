@@ -15,7 +15,10 @@ App.characters = App.cable.subscriptions.create "CharactersChannel",
       $("#character_#{data['id']}").remove()
 
   change: (data) ->
-    @perform 'create', data: data
+    @perform 'change', data: data
 
   create: (data) ->
     @perform 'create', data: data
+
+  destroy: (data) ->
+    @perform 'destroy', data: data

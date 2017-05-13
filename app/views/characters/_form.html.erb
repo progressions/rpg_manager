@@ -1,0 +1,13 @@
+<tr>
+  <%= form_with model: Character.new, local: true do |f| %>
+    <td class="name">
+      <%= f.text_field :name, placeholder: "Name" %>
+    </td>
+    <td class="health">
+      <%= f.text_field :health, type: "number", placeholder: "Health" %>
+    </td>
+    <td class="control">
+      <%= f.submit "Add" %>
+    </td>
+  <% end %>
+</tr>

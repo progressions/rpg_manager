@@ -3,5 +3,8 @@ class CharacterDestroyBroadcastJob < ApplicationJob
 
   def perform(data)
     ActionCable.server.broadcast "encounter_#{data[:encounter_id]}_characters", action: "destroy", id: data[:id], data: ""
+
+    message = "#{data[:name]} has been removed from the encounter"
+    Message.create! encounter_id: data[:encounter_id], body: message
   end
 end

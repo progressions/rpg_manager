@@ -4,6 +4,9 @@ class CharacterUpdateBroadcastJob < ApplicationJob
   def perform(data)
     character = Character.find(data['id'])
     ActionCable.server.broadcast "encounter_#{character.encounter_id}_characters", action: 'change', id: character.id, data: render_character(character)
+
+    message = "#{character.name} now has #{character.health} health"
+    Message.create! encounter_id: character.encounter_id, body: message
   end
 
   private

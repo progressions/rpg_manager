@@ -2,11 +2,11 @@
   <td class="name">Name: <%= character.name %></td>
   <td class="health">
     Health: <%= character.health %>
-    <%= form_with model: character do |f| %>
+    <%= form_with model: character, id: "#{dom_id(character)}_plus" do |f| %>
       <%= f.hidden_field :health, value: character.health+1 %>
       <%= f.submit "+" %>
     <% end %>
-    <%= form_with model: character do |f| %>
+    <%= form_with model: character, id: "#{dom_id(character)}_minus" do |f| %>
       <%= f.hidden_field :health, value: character.health-1 %>
       <%= f.submit "-" %>
     <% end %>

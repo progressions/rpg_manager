@@ -6,8 +6,7 @@ App.characters = App.cable.subscriptions.create "CharactersChannel",
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-    data = data.data
-    alert data.health
+    $("#character_#{data['id']}").replaceWith(data['data'])
 
   change: (data) ->
     @perform 'change', data: data

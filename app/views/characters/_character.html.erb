@@ -1,4 +1,10 @@
 <tr>
   <td>Name: <%= character.name %></td>
-  <td>Health: <%= character.health %></td>
+  <td>
+    Health: <%= character.health %>
+    <%= form_for character do |f| %>
+      <%= f.submit "+" %>
+      <%= f.submit "-" %>
+    <% end %>
+  </td>
 </tr>

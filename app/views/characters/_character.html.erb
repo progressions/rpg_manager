@@ -3,7 +3,11 @@
   <td>
     Health: <%= character.health %>
     <%= form_for character do |f| %>
+      <%= f.hidden_field :health, value: character.health+1 %>
       <%= f.submit "+" %>
+    <% end %>
+    <%= form_for character do |f| %>
+      <%= f.hidden_field :health, value: character.health-1 %>
       <%= f.submit "-" %>
     <% end %>
   </td>

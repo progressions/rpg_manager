@@ -44,6 +44,7 @@ class CharactersController < ApplicationController
       if @character.update(character_params)
         format.html { redirect_to characters_path }
         format.json { render :show, status: :ok, location: @character }
+        CharactersChannel.broadcast_to(@character)
       else
         format.html { redirect_to characters_path }
         format.json { render json: @character.errors, status: :unprocessable_entity }

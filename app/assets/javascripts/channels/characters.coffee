@@ -1,4 +1,4 @@
-$(document).on "turbolinks:load", ->
+$(document).ready ->
   encounter_id = $("#encounter_id").val()
 
   if encounter_id

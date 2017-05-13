@@ -8,6 +8,11 @@ class CharactersChannel < ApplicationCable::Channel
   end
 
   def change(data)
-    ActionCable.server.broadcast 'characters_channel', data
+    # ActionCable.server.broadcast 'characters_channel', data
+    ActionCable.server.broadcast 'characters_channel', {"action" => "create"}
+  end
+
+  def create(data)
+    ActionCable.server.broadcast 'characters_channel', {"action" => "create"}
   end
 end

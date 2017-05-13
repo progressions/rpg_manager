@@ -39,9 +39,9 @@ class CharactersController < ApplicationController
   def update
     respond_to do |format|
       if @character.update(character_params)
-        format.json { render :show, status: :ok, location: @character }
+        render text: "OK"
       else
-        format.json { render json: @character.errors, status: :unprocessable_entity }
+        render text: "OK"
       end
     end
   end

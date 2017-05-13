@@ -6,7 +6,13 @@ App.characters = App.cable.subscriptions.create "CharactersChannel",
     $("#connection").html("Off").removeClass("on").addClass("off")
 
   received: (data) ->
-    $("#character_#{data['id']}").replaceWith(data['data'])
+    if data['action'] is 'change'
+      $("#character_#{data['id']}").replaceWith(data['data'])
+    else if data['action'] is 'create'
+      alert "create"
 
   change: (data) ->
-    @perform 'change', data: data
+    @perform 'create', data: data
+
+  create: (data) ->
+    @perform 'create', data: data

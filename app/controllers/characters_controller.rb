@@ -26,12 +26,7 @@ class CharactersController < ApplicationController
   # POST /characters.json
   def create
     @character = Character.new(character_params)
-
-    if @character.save
-      redirect_to characters_path
-    else
-      redirect_to characters_path
-    end
+    @character.save!
   end
 
   # PATCH/PUT /characters/1

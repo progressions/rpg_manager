@@ -12,6 +12,6 @@
     <% end %>
   </td>
   <td class="control">
-    <%= link_to "Remove", character_url(character), method: :DELETE %>
+    <%= link_to "Remove", character_url(character), remote: true, method: :DELETE %>
   </td>
 </tr>

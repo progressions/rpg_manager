@@ -2,16 +2,16 @@
   <td class="name"><%= character.name %></td>
   <td class="health">
     <%= character.health %>
-    <%= form_with model: character, id: "#{dom_id(character)}_plus" do |f| %>
+    <%= form_with model: [character.encounter, character], id: "#{dom_id(character)}_plus" do |f| %>
       <%= f.hidden_field :health, value: character.health.to_i+1 %>
       <%= f.submit "+" %>
     <% end %>
-    <%= form_with model: character, id: "#{dom_id(character)}_minus" do |f| %>
+    <%= form_with model: [character.encounter, character], id: "#{dom_id(character)}_minus" do |f| %>
       <%= f.hidden_field :health, value: character.health.to_i-1 %>
       <%= f.submit "-" %>
     <% end %>
   </td>
   <td class="control">
-    <%= link_to "Remove", character_url(character), remote: true, method: :DELETE %>
+    <%= link_to "Remove", encounter_character_path(character.encounter, character), remote: true, method: :DELETE %>
   </td>
 </tr>

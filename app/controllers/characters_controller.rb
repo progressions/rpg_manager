@@ -1,12 +1,13 @@
 class CharactersController < ApplicationController
+  before_action :set_encounter
   before_action :set_character, only: [:show, :edit, :update, :destroy]
 
   # GET /characters
   # GET /characters.json
   def index
     @character = Character.new
-    @characters = Character.all
-    @messages = Message.order("created_at DESC")
+    @characters = @encounter.characters
+    @messages = @encounter.messages.order("created_at DESC")
   end
 
   # GET /characters/1
@@ -16,7 +17,7 @@ class CharactersController < ApplicationController
 
   # GET /characters/new
   def new
-    @character = Character.new
+    @character = @encounter.characters.new
   end
 
   # GET /characters/1/edit
@@ -26,7 +27,7 @@ class CharactersController < ApplicationController
   # POST /characters
   # POST /characters.json
   def create
-    @character = Character.new(character_params)
+    @character = @encounter.characters.new(character_params)
     @character.save!
   end
 
@@ -51,7 +52,11 @@ class CharactersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_character
-      @character = Character.find(params[:id])
+      @character = @encounter.characters.find(params[:id])
+    end
+
+    def set_encounter
+      @encounter = Encounter.find(params[:encounter_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

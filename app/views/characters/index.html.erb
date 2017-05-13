@@ -11,7 +11,7 @@
   <tbody id="list">
     <%= render @characters %>
   </tbody>
-  <%= render partial: 'characters/form' %>
+  <%= render partial: 'characters/form', locals: {character: @character} %>
 </table>
 
 <div id="message">

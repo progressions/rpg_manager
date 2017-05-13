@@ -1,3 +1,13 @@
 // Place all the styles related to the messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.message {
+  .timestamp {
+    color: #aaa;
+    font-size: 0.7em;
+    text-transform: lowercase;
+  }
+  .body {
+  }
+}

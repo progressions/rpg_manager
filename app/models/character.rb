@@ -12,4 +12,11 @@ class Character < ApplicationRecord
 
   before_validation { self.health ||= 0 }
   before_validation { self.max_health = self.health if max_health.blank? }
+
+  after_update do
+    if self.health_changed?
+      message = "#{self.name} now has #{self.health} health"
+      Message.create! message_type: "system", encounter_id: self.encounter_id, body: message
+    end
+  end
 end

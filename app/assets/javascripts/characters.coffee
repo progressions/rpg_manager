@@ -10,7 +10,6 @@ $ ->
   $(document).on "click", "[data-behavior~=calculator] input[type=submit]", (event) ->
     field = $(event.target).prev("input[type=text]")
 
-    # will need to make this more secure, validate with regex
     reg = new RegExp(/^[\d\(\)\-+]+$/)
     if reg.test(field.val())
       field.val eval(field.val())

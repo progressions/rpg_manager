@@ -34,12 +34,10 @@ class CharactersController < ApplicationController
   # PATCH/PUT /characters/1
   # PATCH/PUT /characters/1.json
   def update
-    respond_to do |format|
-      if @character.update(character_params)
-        render text: "OK"
-      else
-        render text: "OK"
-      end
+    if @character.update(character_params)
+      render text: "OK"
+    else
+      render text: "OK"
     end
   end
 

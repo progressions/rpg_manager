@@ -31,5 +31,19 @@ class EncountersTest < ApplicationSystemTestCase
 
     fill_in "Message", with: "Hello everyone\n"
     assert_text "Hello everyone"
+
+    within "#list tr:nth-of-type(2)" do
+      click_on "-"
+      click_on "-"
+      click_on "-"
+    end
+
+    assert_text "Zombie now has 17 health"
+
+    within "#list tr:nth-of-type(2)" do
+      click_on "Remove"
+    end
+
+    assert_text "Zombie has been removed from the encounter"
   end
 end

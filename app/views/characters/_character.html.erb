@@ -1,15 +1,15 @@
 <tr id="<%= dom_id(character) %>">
   <td class="name"><%= character.name %></td>
   <td class="health">
-    <%= character.health %>
-    <%= form_with model: [character.encounter, character], id: "#{dom_id(character)}_plus" do |f| %>
-      <%= f.hidden_field :health, value: character.health.to_i+1 %>
-      <%= f.submit "+" %>
-    <% end %>
-    <%= form_with model: [character.encounter, character], id: "#{dom_id(character)}_minus" do |f| %>
-      <%= f.hidden_field :health, value: character.health.to_i-1 %>
-      <%= f.submit "-" %>
-    <% end %>
+    <span href="#" data-behavior="health" data-connected="#<%= dom_id(character) %>_health">
+      <%= character.health %>
+    </span>
+    <div id="<%= dom_id(character) %>_health" style="display: none;">
+      <%= form_with model: [character.encounter, character], html: { "data-behavior" => "calculator" } do |f| %>
+        <%= f.text_field :health, value: "#{character.health}+", "data-original" => character.health %>
+        <%= f.submit "Update" %>
+      <% end %>
+    </div>
   </td>
   <td class="control">
     <%= link_to "Remove", encounter_character_path(character.encounter, character), remote: true, method: :DELETE %>

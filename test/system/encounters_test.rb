@@ -31,7 +31,18 @@ class EncountersTest < ApplicationSystemTestCase
     assert_text "Zombie joined the encounter"
 
     fill_in "Message", with: "Hello everyone\n"
-    assert_text "Hello everyone"
+
+    within "#messages" do
+      assert_selector "div.message.chat", text: "Hello everyone"
+    end
+
+    # Don't submit blank messages
+
+    fill_in "Message", with: "\n"
+
+    within "#messages" do
+      assert_selector "div:nth-of-type(1)", text: "Hello everyone"
+    end
 
     within "#list tr:nth-of-type(2)" do
       click_on "-"

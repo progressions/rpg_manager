@@ -6,7 +6,7 @@ class CharacterCreateBroadcastJob < ApplicationJob
     ActionCable.server.broadcast "encounter_#{character.encounter_id}_characters", action: "create", id: character.id, data: render_character(character)
 
     message = "#{character.name} joined the encounter"
-    Message.create! encounter_id: character.encounter_id, body: message
+    Message.create! message_type: 'system', encounter_id: character.encounter_id, body: message
   end
 
   private

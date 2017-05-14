@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.message.system {
+  color: #aaa;
+  font-size: 0.7em;
+}
+.message.chat {
+  font-size: 1.0em;
+}
 .message {
   .timestamp {
     color: #aaa;

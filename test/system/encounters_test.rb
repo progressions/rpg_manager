@@ -45,12 +45,26 @@ class EncountersTest < ApplicationSystemTestCase
     end
 
     within "#list tr:nth-of-type(2)" do
-      click_on "-"
-      click_on "-"
-      click_on "-"
+      click_on "20"
+      fill_in "character[health]", with: "20-3"
+      click_on "Update"
     end
 
-    assert_text "Zombie now has 17 health"
+    within "#messages" do
+      assert_selector "div:nth-of-type(1)", text: "Zombie now has 17 health"
+    end
+
+    fill_in "Message", with: "Not a valid amount\n"
+
+    within "#list tr:nth-of-type(2)" do
+      click_on "17"
+      fill_in "character[health]", with: "this is not valid"
+      click_on "Update"
+    end
+
+    within "#messages" do
+      assert_selector "div:nth-of-type(1)", text: "Not a valid amount"
+    end
 
     within "#list tr:nth-of-type(2)" do
       click_on "Remove"

@@ -1,9 +1,9 @@
 <tr id="<%= dom_id(character) %>">
   <td class="name"><%= character.name %></td>
   <td class="health">
-    <span href="#" data-behavior="health" data-connected="#<%= dom_id(character) %>_health">
+    <a href="#" data-behavior="health" data-connected="#<%= dom_id(character) %>_health">
       <%= character.health %>
-    </span>
+    </a>
     <div id="<%= dom_id(character) %>_health" style="display: none;">
       <%= form_with model: [character.encounter, character], html: { "data-behavior" => "calculator" } do |f| %>
         <%= f.text_field :health, value: "#{character.health}-", "data-original" => character.health %>

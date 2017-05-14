@@ -10,8 +10,10 @@ class EncountersController < ApplicationController
   end
 
   def create
-    @encounter = Character.new(encounter_params)
+    @encounter = Encounter.new(encounter_params)
     @encounter.save!
+
+    redirect_to encounters_path
   end
 
   def edit

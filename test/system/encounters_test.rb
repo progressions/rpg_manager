@@ -25,6 +25,7 @@ class EncountersTest < ApplicationSystemTestCase
     fill_in "Name", with: "Zombie"
     fill_in "Health", with: "20"
     click_on "Add"
+    assert page.find_field("Name", with: "")
 
     assert_selector "td", text: "Zombie"
     assert_text "Zombie joined the encounter"
@@ -45,5 +46,6 @@ class EncountersTest < ApplicationSystemTestCase
     end
 
     assert_text "Zombie has been removed from the encounter"
+    assert_no_selector "td", text: "Zombie"
   end
 end

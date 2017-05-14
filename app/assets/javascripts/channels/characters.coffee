@@ -26,3 +26,6 @@ $(document).ready ->
 
       destroy: (data) ->
         @perform 'destroy', data: data
+
+  $("#new_character form").on "ajax:complete", (event) ->
+    $("#new_character input").val("")

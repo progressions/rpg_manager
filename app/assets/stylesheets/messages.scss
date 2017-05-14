@@ -4,15 +4,15 @@
 
 .message.system {
   color: #aaa;
-  font-size: 0.7em;
+  font-size: 10px;
 }
 .message.chat {
-  font-size: 1.0em;
+  font-size: 12px;
 }
 .message {
   .timestamp {
     color: #aaa;
-    font-size: 0.7em;
+    font-size: 10px;
     text-transform: lowercase;
   }
   .body {

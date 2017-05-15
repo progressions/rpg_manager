@@ -6,7 +6,7 @@ class CharactersController < ApplicationController
   # GET /characters.json
   def index
     @character = Character.new
-    @characters = @encounter.characters
+    @characters = @encounter.characters.active
     @messages = @encounter.messages.order("created_at DESC")
   end
 
@@ -44,7 +44,7 @@ class CharactersController < ApplicationController
   # DELETE /characters/1
   # DELETE /characters/1.json
   def destroy
-    @character.destroy
+    @character.deactivate!
   end
 
   private

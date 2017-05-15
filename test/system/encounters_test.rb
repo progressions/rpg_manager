@@ -30,7 +30,11 @@ class EncountersTest < ApplicationSystemTestCase
     assert_selector "td", text: "Zombie"
     assert_text "Zombie joined the encounter"
 
+    message_count = Message.count
+
     fill_in "Message", with: "Hello everyone\n"
+
+    assert_equal message_count+1, Message.count
 
     within "#messages" do
       assert_selector "div.message.chat", text: "Hello everyone"
@@ -38,9 +42,14 @@ class EncountersTest < ApplicationSystemTestCase
 
     # Don't submit blank messages
 
+    message_count = Message.count
+
     fill_in "Message", with: "\n"
 
+    assert_equal message_count, Message.count
+
     within "#messages" do
+      # The first message hasn't changed, meaning the blank message didn't submit
       assert_selector "div:nth-of-type(1)", text: "Hello everyone"
     end
 

@@ -1,6 +1,6 @@
 <h1>New Encounter</h1>
 
-<%= form_for @encounter, html: {id: "new_encounter"} do |f| %>
+<%= form_for @encounter, id: "new_encounter" do |f| %>
   <p>
     <%= f.label :name %>
     <%= f.text_field :name %>

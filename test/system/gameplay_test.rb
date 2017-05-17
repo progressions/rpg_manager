@@ -2,6 +2,14 @@ require "application_system_test_case"
 
 class GameplayTest < ApplicationSystemTestCase
   test "playing the game" do
+    visit login_url
+
+    fill_in "Email", with: "narrator@bluerose.rpg"
+    fill_in "Password", with: "password"
+    within ".actions" do
+      click_on "Log In"
+    end
+
     visit encounters_url
 
     assert_selector "h1", text: "Encounters"

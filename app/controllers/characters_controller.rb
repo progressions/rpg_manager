@@ -1,6 +1,7 @@
 class CharactersController < ApplicationController
   before_action :set_encounter
   before_action :set_character, only: [:show, :edit, :update, :destroy]
+  before_action :requires_authentication
 
   # GET /characters
   # GET /characters.json

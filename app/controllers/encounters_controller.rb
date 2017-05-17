@@ -1,5 +1,6 @@
 class EncountersController < ApplicationController
   before_action :set_encounter, only: [:show, :edit, :update, :destroy]
+  before_action :requires_authentication
 
   def index
     @encounters = Encounter.all

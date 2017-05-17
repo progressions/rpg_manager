@@ -2,8 +2,8 @@
 
 one:
   email: narrator@bluerose.rpg
-  password_digest: 12345
+  password_digest: $2a$10$Xxqe7/rVPi.MHPxL/YlDUui6S7.w9XhesWJAWyBjV/f3yW/z1SRiq
 
 two:
   email: player_fred@bluerose.rpg
-  password_digest: abcdefg
+  password_digest: $2a$10$Xxqe7/rVPi.MHPxL/YlDUui6S7.w9XhesWJAWyBjV/f3yW/z1SRiq

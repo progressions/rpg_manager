@@ -21,7 +21,7 @@ class EncountersController < ApplicationController
 
   def update
     if @encounter.update(encounter_params)
-      render text: "OK"
+      redirect_to encounters_path
     end
   end
 

@@ -35,9 +35,7 @@ class CharactersController < ApplicationController
   # PATCH/PUT /characters/1.json
   def update
     if @character.update(character_params)
-      render text: "OK"
-    else
-      render text: "OK"
+      render plain: "OK"
     end
   end
 

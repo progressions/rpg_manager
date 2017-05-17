@@ -1,3 +1,4 @@
-<p>
-<%= link_to encounter.name, encounter_characters_path(encounter_id: encounter) %>
+<p class="encounter">
+  <%= link_to encounter.name, encounter_characters_path(encounter_id: encounter) %>
+  (<%= link_to "edit", edit_encounter_path(encounter) %>)
 </p>

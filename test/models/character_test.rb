@@ -26,6 +26,13 @@ class CharacterTest < ActiveSupport::TestCase
     assert_equal 30, character.max_health
   end
 
+  test "reset! sets health to max health" do
+    character = sample_character(health: 30, encounter_id: sample_encounter.id)
+    character.health -= 10
+    character.reset!
+    assert_equal character.max_health, character.health
+  end
+
   def sample_character(name: "Bartholomew", health: 25, max_health: nil, encounter_id: nil)
     Character.new name: name, health: health, max_health: max_health, encounter_id: encounter_id
   end

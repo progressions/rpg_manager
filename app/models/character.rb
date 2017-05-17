@@ -25,4 +25,8 @@ class Character < ApplicationRecord
     self.update_attributes!(active: false)
     CharacterDestroyBroadcastJob.perform_later(encounter_id: self.encounter_id, id: self.id, name: self.name)
   end
+
+  def reset!
+    self.update_attributes!(health: self.max_health)
+  end
 end

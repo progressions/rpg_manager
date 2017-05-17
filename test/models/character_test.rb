@@ -38,6 +38,6 @@ class CharacterTest < ActiveSupport::TestCase
   end
 
   def sample_encounter(name: "Woods Ambush")
-    Encounter.create! name: name
+    Encounter.create! name: name, user: users(:one)
   end
 end

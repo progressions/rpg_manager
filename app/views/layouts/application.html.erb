@@ -16,6 +16,13 @@
       <%= link_to "Encounters", encounters_path %>
       |
       Connection: <span id="connection" class="off">Off</span>
+      |
+      <% if logged_in? %>
+        <%= link_to 'Logout', logout_path %>
+      <% else %>
+        <%= link_to "Sign Up", signup_path %>
+        <%= link_to "Log In", login_path %>
+      <% end %>
     </p>
     <%= yield %>
 

@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: narrator@bluerose.rpg
+  password_digest: 12345
+
+two:
+  email: player_fred@bluerose.rpg
+  password_digest: abcdefg

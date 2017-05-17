@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
+  attr_accessor :current_user
+
   private
 
     def requires_authentication
@@ -11,5 +13,4 @@ class ApplicationController < ActionController::Base
       @current_user ||= User.find(session[:user_id]) if session[:user_id]
     end
     helper_method :logged_in?
-
 end

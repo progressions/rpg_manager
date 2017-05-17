@@ -1,17 +1,17 @@
 class EncountersController < ApplicationController
-  before_action :set_encounter, only: [:show, :edit, :update, :destroy]
   before_action :requires_authentication
+  before_action :set_encounter, only: [:show, :edit, :update, :destroy]
 
   def index
-    @encounters = Encounter.all
+    @encounters = current_user.encounters
   end
 
   def new
-    @encounter = Encounter.new
+    @encounter = current_user.encounters.new
   end
 
   def create
-    @encounter = Encounter.new(encounter_params)
+    @encounter = current_user.encounters.new(encounter_params)
     @encounter.save!
 
     redirect_to encounters_path
@@ -33,7 +33,7 @@ class EncountersController < ApplicationController
   private
 
     def set_encounter
-      @encounter = Encounter.find(params[:id])
+      @encounter = current_user.encounters.find(params[:id])
     end
 
     def encounter_params

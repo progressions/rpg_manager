@@ -13,13 +13,14 @@
   <body data-current-user-id="<%= current_user.try(:id) %>" data-current-encounter-id="<%= @encounter.try(:id) %>">
     <h1>Sovereign's Finest</h1>
     <p>
-      <%= link_to "Encounters", encounters_path %>
-      |
       <% if signed_in? %>
+        Welcome, <%= current_user.name %>!
+        |
+        <%= link_to "Encounters", encounters_path %>
+        |
         <%= link_to 'Sign Out', signout_path %>
       <% else %>
         <%= link_to "Sign Up", signup_path %>
-        <%= link_to "Sign In", signin_path %>
       <% end %>
     </p>
     <%= yield %>

@@ -2,8 +2,8 @@
 
 one:
   name: Woods
-  user: one
+  narrator: one
 
 two:
   name: Dungeon
-  user: one
+  narrator: one

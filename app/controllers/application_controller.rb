@@ -6,11 +6,11 @@ class ApplicationController < ActionController::Base
   private
 
     def requires_authentication
-      redirect_to login_path unless logged_in?
+      redirect_to signin_path unless signed_in?
     end
 
-    def logged_in?
+    def signed_in?
       @current_user ||= User.find(session[:user_id]) if session[:user_id]
     end
-    helper_method :logged_in?
+    helper_method :signed_in?
 end

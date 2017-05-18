@@ -15,8 +15,6 @@
     <p>
       <%= link_to "Encounters", encounters_path %>
       |
-      Connection: <span id="connection" class="off">Off</span>
-      |
       <% if signed_in? %>
         <%= link_to 'Sign Out', signout_path %>
       <% else %>

@@ -1,4 +1,7 @@
-<h1><%= @encounter.name %></h1>
+<h2>
+  <%= @encounter.name %>
+</h2>
+<p class="subhead">Connection: <span id="connection" class="off">Off</span></p>
 <input type="hidden" id="encounter_id" value="<%= @encounter.id %>" />
 
 <table id="characters">

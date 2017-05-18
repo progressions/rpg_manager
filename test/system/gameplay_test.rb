@@ -44,8 +44,9 @@ class GameplayTest < ApplicationSystemTestCase
 
     assert_equal message_count+1, Message.count
 
-    within "#messages" do
-      assert_selector "div.message.chat", text: "Hello everyone"
+    within "#messages div.message:nth-of-type(1)" do
+      assert_selector "span.speaker", text: "narrator@bluerose.rpg"
+      assert_selector "span.body", text: "Hello everyone"
     end
 
     # Don't submit blank messages
@@ -56,9 +57,10 @@ class GameplayTest < ApplicationSystemTestCase
 
     assert_equal message_count, Message.count
 
-    within "#messages" do
+    within "#messages div.message:nth-of-type(1)" do
       # The first message hasn't changed, meaning the blank message didn't submit
-      assert_selector "div:nth-of-type(1)", text: "Hello everyone"
+      assert_selector "span.speaker", text: "narrator@bluerose.rpg"
+      assert_selector "span.body", text: "Hello everyone"
     end
 
     within "#list tr:nth-of-type(2)" do

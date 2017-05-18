@@ -45,7 +45,7 @@ class GameplayTest < ApplicationSystemTestCase
     assert_equal message_count+1, Message.count
 
     within "#messages div.message:nth-of-type(1)" do
-      assert_selector "span.speaker", text: "narrator@bluerose.rpg"
+      assert_selector "span.speaker", text: "Narrator"
       assert_selector "span.body", text: "Hello everyone"
     end
 

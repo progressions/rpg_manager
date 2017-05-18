@@ -2,7 +2,7 @@
   <p>
     <%- if message.user %>
       <span class="speaker">
-        <%= message.user.email %>
+        <%= message.user.name %>
       </span>
     <% end %>
     <span class="timestamp"><%= message.created_at.strftime("%H:%M:%S%p") %></span>

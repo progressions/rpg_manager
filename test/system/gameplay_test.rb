@@ -59,7 +59,7 @@ class GameplayTest < ApplicationSystemTestCase
 
     within "#messages div.message:nth-of-type(1)" do
       # The first message hasn't changed, meaning the blank message didn't submit
-      assert_selector "span.speaker", text: "narrator@bluerose.rpg"
+      assert_selector "span.speaker", text: "Narrator"
       assert_selector "span.body", text: "Hello everyone"
     end
 

@@ -3,7 +3,9 @@ class CharacterUpdateBroadcastJob < ApplicationJob
 
   def perform(data)
     character = Character.find(data['id'])
-    ActionCable.server.broadcast "encounter_#{character.encounter_id}_characters", action: 'change', id: character.id, data: render_character(character)
+    if character.active
+      ActionCable.server.broadcast "encounter_#{character.encounter_id}_characters", action: 'change', id: character.id, data: render_character(character)
+    end
   end
 
   private

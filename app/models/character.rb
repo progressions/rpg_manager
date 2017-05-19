@@ -9,7 +9,7 @@ class Character < ApplicationRecord
   after_create_commit { CharacterCreateBroadcastJob.perform_later self }
   after_update_commit { CharacterUpdateBroadcastJob.perform_later self }
 
-  before_validation { self.health ||= 0 }
+  before_validation { self.active = true; self.health ||= 0 }
   before_validation { self.max_health = self.health if max_health.blank? }
 
   scope :active, -> { where(active: true) }

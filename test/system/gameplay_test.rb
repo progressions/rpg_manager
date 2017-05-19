@@ -33,7 +33,17 @@ class GameplayTest < ApplicationSystemTestCase
     fill_in "Name", with: "Zombie"
     fill_in "Health", with: "20"
     click_on "Add"
+
     assert page.find_field("Name", with: "")
+    assert_selector "td", text: "Zombie"
+    assert_text "Zombie joined the encounter"
+
+    # Reload the page to confirm the added character still shows up
+    visit current_path
+
+    e = Encounter.where(name: "City encounter").first
+    assert e.characters.map(&:name).include?("Zombie")
+    assert e.characters.active.map(&:name).include?("Zombie")
 
     assert_selector "td", text: "Zombie"
     assert_text "Zombie joined the encounter"

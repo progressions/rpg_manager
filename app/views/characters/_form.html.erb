@@ -1,5 +1,6 @@
 <tr id="new_character">
   <%= form_with scope: "character", url: encounter_characters_path do |f| %>
+    <%= f.hidden_field :active, value: true %>
     <td class="name">
       <%= f.text_field :name, placeholder: "Name" %>
     </td>

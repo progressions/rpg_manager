@@ -1,9 +1,14 @@
 <div class="message <%= message.message_type %>" id="<%= dom_id(message) %>">
   <p>
-    <%- if message.user %>
+    <% if message.user %>
       <span class="speaker">
         <%= message.user.name %>
       </span>
+      <% if message.from_narrator? %>
+        <span class="role">
+          (narrator)
+        </span>
+      <% end %>
     <% end %>
     <span class="timestamp"><%= message.created_at.strftime("%H:%M:%S%p") %></span>
     <span class="body"><%= message.body %></span>

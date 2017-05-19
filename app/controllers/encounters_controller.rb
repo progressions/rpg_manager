@@ -3,7 +3,8 @@ class EncountersController < ApplicationController
   before_action :set_encounter, only: [:show, :edit, :update, :destroy]
 
   def index
-    @encounters = current_user.narrated_encounters
+    @narrated_encounters = current_user.narrated_encounters
+    @encounters = current_user.encounters
   end
 
   def new

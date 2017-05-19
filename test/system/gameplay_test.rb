@@ -13,7 +13,7 @@ class GameplayTest < ApplicationSystemTestCase
     visit encounters_url
 
     assert_selector "h1", text: "Encounters"
-    click_on "New Encounter"
+    click_on "Create an Encounte"
 
     assert_selector "h1", text: "New Encounter"
     fill_in "Name", with: "City encounter"

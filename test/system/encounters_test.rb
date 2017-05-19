@@ -13,14 +13,14 @@ class EncountersTest < ApplicationSystemTestCase
     visit encounters_url
 
     assert_selector "h1", text: "Encounters"
-    click_on "New Encounter"
+    click_on "Create an Encounter"
 
     assert_selector "h1", text: "New Encounter"
     fill_in "Name", with: "City encounter"
 
     click_on "Create"
 
-    within ".encounters p:nth-of-type(3)" do
+    within ".narrated_encounters p:nth-of-type(4)" do
       assert_selector "a", text: "City encounter"
       click_on "edit"
     end
@@ -28,7 +28,7 @@ class EncountersTest < ApplicationSystemTestCase
     fill_in "Name", with: "City Alleys"
     click_on "Update Encounter"
 
-    within ".encounters p:nth-of-type(3)" do
+    within ".narrated_encounters p:nth-of-type(4)" do
       assert_selector "a", text: "City Alleys"
     end
   end

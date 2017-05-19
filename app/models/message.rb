@@ -6,4 +6,8 @@ class Message < ApplicationRecord
 
   scope :chat, -> { where(message_type: "chat") }
   scope :system, -> { where(message_type: "system") }
+
+  def from_narrator?
+    self.encounter.narrator == self.user
+  end
 end

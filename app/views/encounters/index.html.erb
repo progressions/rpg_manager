@@ -1,8 +1,15 @@
 <h1>Encounters</h1>
-<p>
-  <%= link_to "New Encounter", new_encounter_path %>
-</p>
+<div class="narrated_encounters">
+  <h2>Narrator</h2>
+  <p>
+    <%= link_to "Create an Encounter", new_encounter_path %>
+  </p>
+
+  <%= render @narrated_encounters %>
+</div>
 
 <div class="encounters">
+  <h2>Player</h2>
   <%= render @encounters %>
+
 </div>

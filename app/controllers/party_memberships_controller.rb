@@ -2,7 +2,7 @@ class PartyMembershipsController < ApplicationController
   before_action :requires_authentication
 
   def index
-    @encounters = Encounter.available(current_user)
+    @encounters = Encounter.where.not(encounters: { user_id: current_user })
   end
 
   def new
@@ -15,6 +15,13 @@ class PartyMembershipsController < ApplicationController
     @party_membership.save!
 
     redirect_to encounter_characters_path(encounter_id: @party_membership.encounter)
+  end
+
+  def destroy
+    @party_membership = current_user.party_memberships.find(params[:id])
+    @party_membership.destroy!
+
+    redirect_to party_memberships_path
   end
 
   private

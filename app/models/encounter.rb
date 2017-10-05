@@ -11,5 +11,5 @@ class Encounter < ApplicationRecord
   scope :without_player, -> (user) { left_joins(:party_memberships).where.not(party_memberships: { user_id: user }) }
 
   # Find encounters which aren't owned by or played by this user
-  scope :available, -> (user) { no_players.or(without_player(user)).where.not(encounters: { user_id: user }) }
+  scope :available, -> (user) { where.not(encounters: { user_id: user }) }
 end

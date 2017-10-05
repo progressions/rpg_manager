@@ -1,0 +1,7 @@
+<h1>Party Memberships</h1>
+
+<div class="party_memberships">
+  <% @encounters.each do |encounter| %>
+    <%= render partial: "party_memberships/encounter", locals: { encounter: encounter } %>
+  <% end %>
+</div>

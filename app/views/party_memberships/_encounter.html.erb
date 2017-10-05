@@ -1,0 +1,5 @@
+<p class="encounter">
+  <strong><%= encounter.name %></strong>
+  by <%= encounter.narrator.name %>
+  (<%= link_to "join", new_party_membership_path(party_membership: {encounter_id: encounter}) %>)
+</p>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :party_memberships
   resources :sessions
 
   get 'signup', to: 'users#new', as: 'signup'

@@ -1,0 +1,9 @@
+<h1>Join an Encounter</h1>
+
+<p><%= @encounter.name %></p>
+
+<%= form_for @party_membership do |f| %>
+  <%= f.hidden_field(:encounter_id) %>
+
+  <%= f.submit %>
+<% end %>

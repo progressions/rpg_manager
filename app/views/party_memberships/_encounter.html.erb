@@ -6,4 +6,7 @@
   <% else %>
     (<%= link_to "join", new_party_membership_path(party_membership: {encounter_id: encounter}) %>)
   <% end %>
+  <br />
+  Players:
+  <%= encounter.players.pluck(:name).join(", ") %>
 </p>

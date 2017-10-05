@@ -2,7 +2,7 @@ class PartyMembershipsController < ApplicationController
   before_action :requires_authentication
 
   def index
-    @encounters = Encounter.all
+    @encounters = Encounter.available(current_user)
   end
 
   def new

@@ -6,7 +6,7 @@
     </a>
     <div id="<%= dom_id(character) %>_health" style="display: none;">
       <%= form_with model: [character.encounter, character], html: { "data-behavior" => "calculator" } do |f| %>
-        <%= f.text_field :health, value: "#{character.health}-", "data-original" => character.health %>
+        <%= f.text_field :health, value: "#{character.health}", "data-original" => character.health %>
         <%= f.submit "Update" %>
       <% end %>
     </div>

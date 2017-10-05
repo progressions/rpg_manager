@@ -6,7 +6,12 @@ $ ->
   $(document).on "click", "[data-behavior~=health]", (event) ->
     $(event.target.dataset.connected).toggle()
     field = $(event.target.dataset.connected).find("input[type=text]")
-    field.focus().val(field.val())
+    field.focus()
+
+    value = field.val() + "-"
+
+    field.val(value)
+
   $(document).on "click", "[data-behavior~=calculator] input[type=submit]", (event) ->
     field = $(event.target).prev("input[type=text]")
 

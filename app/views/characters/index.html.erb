@@ -4,6 +4,14 @@
 <p class="subhead">Connection: <span id="connection" class="off">Off</span></p>
 <input type="hidden" id="encounter_id" value="<%= @encounter.id %>" />
 
+<table id="players">
+  <%- @encounter.players.each do |player| %>
+    <tr><td><%= player.name %></td></tr>
+  <% end %>
+</table>
+
+<br />
+
 <table id="characters">
   <thead>
     <tr>

@@ -1,24 +1,19 @@
-# README
+# RPG Manager
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a simple app for tracking health of multiple characters in a tabletop roleplaying game.
 
-Things you may want to cover:
+## Current Features
 
-* Ruby version
+* Add/remove characters to an encounter
+* Track hit points in the encounter
+* Manage multiple encounters
+* Encounters have a single narrator, the creator of the encounter
+* Encounters have multiple players
 
-* System dependencies
+## Improvements to Make
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Make encounters private or public
+* Narrator can invite player to private encounter
+* Players can create characters
+* Players can use character in multiple encounters
+* Create campaign, belonging to narrator and players, containing multiple encounters

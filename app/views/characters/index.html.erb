@@ -1,6 +1,18 @@
 <h2>
   <%= @encounter.name %>
 </h2>
+<h3>
+  by <%= @encounter.narrator.name %>
+</h3>
+<h4>
+  <% if party_membership = current_user.party_memberships.where(encounter_id: @encounter).take %>
+    You are a player of this encounter
+    (<%= link_to "leave", party_membership_path(party_membership), method: :DELETE %>)
+  <% else %>
+    You are not a player of this encounter
+    (<%= link_to "join", party_memberships_path(party_membership: {encounter_id: @encounter}), method: :POST %>)
+  <% end %>
+</h4>
 <p class="subhead">Connection: <span id="connection" class="off">Off</span></p>
 <input type="hidden" id="encounter_id" value="<%= @encounter.id %>" />
 

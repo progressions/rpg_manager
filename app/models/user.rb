@@ -21,4 +21,8 @@ class User < ApplicationRecord
 
   has_many :party_memberships
   has_many :encounters, through: :party_memberships
+
+  def belongs_to?(encounter)
+    self.narrated_encounters.where(id: encounter).any? || self.party_memberships.where(encounter_id: encounter).any?
+  end
 end

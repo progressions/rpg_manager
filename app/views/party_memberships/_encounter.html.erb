@@ -1,5 +1,5 @@
 <p class="encounter">
-  <strong><%= encounter.name %></strong>
+  <strong><%= link_to encounter.name, encounter_characters_path(encounter_id: encounter) %></strong>
   by <%= encounter.narrator.name %>
   <% if party_membership = current_user.party_memberships.where(encounter_id: encounter).take %>
     (<%= link_to "leave", party_membership_path(party_membership), method: :DELETE %>)

@@ -23,3 +23,15 @@
 #log {
   display: none;
 }
+.flash {
+  color: white;
+}
+.flash .notice {
+  background-color: green;
+  padding: 5px;
+}
+.flash .alert {
+  background-color: red;
+  padding: 5px;
+}
+

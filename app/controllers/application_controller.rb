@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   private
 
     def requires_authentication
+      flash[:alert] = "You must be signed in." unless signed_in?
       redirect_to signin_path unless signed_in?
     end
 

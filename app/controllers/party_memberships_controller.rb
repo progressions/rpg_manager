@@ -11,6 +11,7 @@ class PartyMembershipsController < ApplicationController
   end
 
   def create
+    @encounter = Encounter.find(party_membership_params[:encounter_id])
     @party_membership = current_user.party_memberships.new(party_membership_params)
     @party_membership.save!
 

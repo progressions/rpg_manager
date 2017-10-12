@@ -4,7 +4,7 @@
   <% if party_membership = current_user.party_memberships.where(encounter_id: encounter).take %>
     (<%= link_to "leave", party_membership_path(party_membership), method: :DELETE %>)
   <% else %>
-    (<%= link_to "join", new_party_membership_path(party_membership: {encounter_id: encounter}) %>)
+    (<%= link_to "join", party_memberships_path(party_membership: {encounter_id: encounter}), method: :POST %>)
   <% end %>
   <br />
   Players:

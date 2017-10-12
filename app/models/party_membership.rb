@@ -19,10 +19,14 @@ class PartyMembership < ApplicationRecord
   def join_message
     message = "Player #{player.name} is now playing this encounter"
     Message.create! user_id: self.user_id, message_type: 'system', encounter_id: self.encounter_id, body: message
+
+    PlayersUpdateBroadcastJob.perform_later id: self.encounter_id
   end
 
   def leave_message
     message = "Player #{player.name} has left this encounter"
     Message.create! user_id: self.user_id, message_type: 'system', encounter_id: self.encounter_id, body: message
+
+    PlayersUpdateBroadcastJob.perform_later id: self.encounter_id
   end
 end

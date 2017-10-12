@@ -11,6 +11,6 @@ class CharacterUpdateBroadcastJob < ApplicationJob
   private
 
     def render_character(character)
-      ApplicationController.renderer.render(partial: 'characters/character', locals: {character: character})
+      ApplicationController.renderer.render partial: "characters/character", locals: { character: character }
     end
 end

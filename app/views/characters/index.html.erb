@@ -16,11 +16,7 @@
 <p class="subhead">Connection: <span id="connection" class="off">Off</span></p>
 <input type="hidden" id="encounter_id" value="<%= @encounter.id %>" />
 
-<table id="players">
-  <%- @encounter.players.each do |player| %>
-    <tr><td><%= player.name %></td></tr>
-  <% end %>
-</table>
+<%= render partial: "players", locals: { encounter: @encounter } %>
 
 <br />
 
@@ -35,7 +31,7 @@
   <tbody id="list">
     <%= render @characters %>
   </tbody>
-  <%= render partial: 'characters/form', locals: {character: @character} %>
+  <%= render partial: 'characters/form', locals: { character: @character } %>
 </table>
 
 <div id="message">

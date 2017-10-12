@@ -1,0 +1,8 @@
+<div id="players">
+  <h4>Players</h4>
+  <table>
+    <%- encounter.players.each do |player| %>
+      <tr><td><%= player.name %></td></tr>
+    <% end %>
+  </table>
+</div>

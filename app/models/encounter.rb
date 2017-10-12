@@ -7,6 +7,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  user_id    :integer
+#  private    :boolean
 #
 
 class Encounter < ApplicationRecord
@@ -23,4 +24,6 @@ class Encounter < ApplicationRecord
 
   # Find encounters which aren't owned by or played by this user
   scope :available, -> (user) { where.not(encounters: { user_id: user }) }
+  scope :private_encounters, -> { where(private: true) }
+  scope :public_encounters, -> { where("private IS NOT ?", true) }
 end

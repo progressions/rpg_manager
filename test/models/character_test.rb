@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: characters
+#
+#  id           :integer          not null, primary key
+#  name         :string
+#  health       :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  encounter_id :integer
+#  max_health   :integer
+#  active       :boolean
+#
+
 require 'test_helper'
 
 class CharacterTest < ActiveSupport::TestCase

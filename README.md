@@ -2,8 +2,12 @@
 
 This is a simple app for tracking health of multiple characters in a tabletop roleplaying game.
 
+Part of the objective of this app is to learn more about websockets using ActionCable. It uses websockets to keep information up to date on all players' screens, and to provide any other updates necessary.
+
 ## Current Features
 
+* Make encounters private or public
+* Notifications when players join or leave an encounter
 * Add/remove characters to an encounter
 * Track hit points in the encounter
 * Manage multiple encounters
@@ -14,7 +18,6 @@ One of the aims of this app is to use websockets to maintain connections between
 
 ## Improvements to Make
 
-* Make encounters private or public
 * Narrator can invite player to private encounter
 * Players can create characters
 * Players can use character in multiple encounters
